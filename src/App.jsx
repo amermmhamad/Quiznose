@@ -1,10 +1,10 @@
 import "./App.css";
 import "./index.css";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import Homepage from "./screens/homepage";
-import Category from "./screens/category";
-import Difficulty from "./screens/difficulty";
-import Quiz from "./screens/quiz";
+import Homepage from "./screens/Homepage";
+import Category from "./screens/Category";
+import Difficulty from "./screens/Difficulty";
+import Quiz from "./screens/Quiz";
 import { AppContextProvider } from "./context/AppContext";
 
 function App() {

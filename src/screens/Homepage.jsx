@@ -5,7 +5,7 @@ const Homepage = () => {
   return (
     <div className="h-screen w-full flex items-center justify-center">
       <div className="p-10 rounded-lg text-center">
-        <h1 className="league-spartan mb-3 font-bold leading-none tracking-tight text-8xl text-gray-900 lg:text-9xl dark:text-white">
+        <h1 className="league-spartan mb-3 font-bold leading-none tracking-tight text-8xl text-gray-900 lg:text-9xl">
           Quiznose
         </h1>
         <Link to="/category">
