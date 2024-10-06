@@ -23,20 +23,15 @@ function Quiz() {
     setLoading(false);
   }
 
-  // Combines correct and incorrect answers into a single array
   function combineAllAnswers(incorrectAnswers, correctAnswer) {
     let allAnswers = [...incorrectAnswers, correctAnswer];
-    // Randomize order of answers in array
     allAnswers.sort(() => Math.random() - 0.5);
     setAllPossibleAnswers(allAnswers);
   }
 
-  // Make API call to trivia API
   async function getTriviaData() {
-    // Set loading boolean to true so that we know to show loading text
     setLoading(true);
 
-    // Make trivia API call using axios
     const resp = await axios.get(
       `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`
     );
@@ -44,13 +39,11 @@ function Quiz() {
     setTriviaQuestions(resp.data.results);
     setCorrectAnswer(resp.data.results[0].correct_answer);
 
-    // Combine correct and incorrect answers into a single array
     combineAllAnswers(
       resp.data.results[0].incorrect_answers,
       resp.data.results[0].correct_answer
     );
 
-    // Set loading boolean to false so that we know to show trivia question
     setLoading(false);
   }
 
@@ -60,7 +53,6 @@ function Quiz() {
 
   function verifyAnswer(selectedAnswer) {
     setSelectedAnswer(selectedAnswer);
-    // If the selected answer equals the correct answer, increase the current points by 1
     let newScore = currentPoints;
     if (selectedAnswer === correctAnswer) {
       newScore++;
@@ -70,7 +62,6 @@ function Quiz() {
       setHistory((history) => [...history, newScore]);
     console.log({ currentQuestionIndex });
 
-    // Move to the next question after a delay to show the answer
     setTimeout(() => {
       const nextQuestionIndex = currentQuestionIndex + 1;
       setCurrentQuestionIndex(nextQuestionIndex);
@@ -85,7 +76,6 @@ function Quiz() {
   }
   console.log(history);
 
-  // Converts HTML code to regular characters
   function removeCharacters(question) {
     return question
       .replace(/(&quot\;)/g, '"')
